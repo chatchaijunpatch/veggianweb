@@ -1,0 +1,81 @@
+/*
+* Global Set
+*
+*/
+body {
+    margin: 0;
+    padding: 0;
+    background: #EBF3F5;
+    height: 100vh;
+}
+header {
+    padding: 40px;
+    min-height: 200px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+}
+header > * {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+header > :last-child {
+    margin-bottom: 0;
+}
+h1 {
+    margin-bottom: 0.5em;
+    font-weight: inherit;
+    line-height: 1.2;
+    color: #1c5b72;
+    font-size: 2.618em;
+}
+h2 {
+    color: #1c5b72;
+}
+@media (min-width: 800px) {
+    h1 {
+        font-size: 4.236em;
+        font-weight: 300;
+    }
+}
+p {
+    margin-bottom: 1.3em;
+    line-height: 1.618;
+}
+@media (min-width: 800px) {
+    p {
+        font-size: 1.3em;
+    }
+}
+a {
+    color: #1c5b72;
+    text-decoration: none;
+}
+table{
+    background: #ffffff !important;
+    color: #1c5b72 !important;
+    font-size: 1.25em !important;
+}
+/*login*/
+#login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 350px;
+    /*border: 1px solid #1c5b72;*/
+    background-color: #ffffff;
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+}
+.form-control{
+    margin-bottom: 2rem !important;
+    background: #e8e8e8 !important;
+}
+.add{
+    background: #ffffff !important;
+}
+
+

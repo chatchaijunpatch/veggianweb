@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Veggian Register</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/myjs.js}"></script>
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:insert="fragments/header :: header"></div>
+
+<form th:action="@{/register}" method="post">
+        <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+        <label>
+            <p class="label-txt"><strong>ENTER YOUR EMAIL</strong></p>
+            <input type="text" class="input" th:name="email" placeholder="Email">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt"><strong>ENTER YOUR NAME</strong></p>
+            <input type="text" class="input" th:name="name" placeholder="Name">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt"><strong>ENTER YOUR USERNAME</strong></p>
+            <input type="text" class="input" th:name="username" placeholder="Username">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+
+        </label>
+        <label>
+            <p class="label-txt"><strong>ENTER YOUR PASSWORD</strong></p>
+            <input type="password" class="input" id="exampleInputPassword1 " placeholder="Password" th:name="password">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt"><strong>CONFIRM PASSWORD</strong></p>
+            <input type="password" class="input" id="exampleInputPassword1 " placeholder="Confirm Password" th:name="repassword">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+            <a th:href="@{/login}">
+                <button type="button" class="btn  btn-dark">back</button>
+            </a>
+        </div>
+        <div class="input-group">
+        <button type="submit" class="btn  btn-dark">submit</button>
+        </div>
+    </div>
+    </form>
+
+</body>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: #EBF3F5;
+        height: 100vh;    }
+    form {
+        width: 60%;
+        margin: 60px auto;
+        background: #ffffff;
+        padding: 60px 120px 80px 120px;
+        text-align: center;
+        -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+        box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+    }
+    label {
+        display: block;
+        position: relative;
+        margin: 40px 0px;
+    }
+    .label-txt {
+        position: absolute;
+        top: -1.6em;
+        padding: 10px;
+        font-family: sans-serif;
+        font-size: .8em;
+        letter-spacing: 1px;
+        color: rgb(120,120,120);
+        transition: ease .3s;
+    }
+    .input {
+        width: 100%;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .line-box {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background: #BCBCBC;
+    }
+
+    .line {
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #8BC34A;
+        transition: ease .6s;
+    }
+
+    .input:focus + .line-box .line {
+        width: 100%;
+    }
+
+    .label-active {
+        top: -3em;
+    }
+
+    /*button {*/
+    /*    display: inline-block;*/
+    /*    padding: 12px 24px;*/
+    /*    background: rgb(220,220,220);*/
+    /*    font-weight: bold;*/
+    /*    color: rgb(120,120,120);*/
+    /*    border: none;*/
+    /*    outline: none;*/
+    /*    border-radius: 3px;*/
+    /*    cursor: pointer;*/
+    /*    transition: ease .3s;*/
+    /*}*/
+
+    /*button:hover {*/
+    /*    background: #8BC34A;*/
+    /*    color: #ffffff;*/
+    /*}*/
+</style>
+</html>
