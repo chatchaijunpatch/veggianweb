@@ -66,7 +66,7 @@ public class VegetableController {
             return "redirect:add";
         }
         System.out.println(amount);
-        Vegetable vegetable = new Vegetable(UUID.randomUUID(),name,Integer.parseInt(price.toString()), Integer.parseInt(amount.toString()));
+        Vegetable vegetable = new Vegetable(UUID.randomUUID(),name.toLowerCase(),Integer.parseInt(price.toString()), Integer.parseInt(amount.toString()));
         // พอรับเข้ามาจะเอาเข้า List
         service.addVegetable(vegetable);
         return "redirect:/vegetable";}
