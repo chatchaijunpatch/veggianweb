@@ -1,15 +1,23 @@
 package com.example.chart.entities;
 
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import java.util.UUID;
 
-public class User {
+@Entity
+@Table(name = "users")
+public class User
+{
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @Type(type = "org.hibernate.type.UUIDCharType")
+    @Column(columnDefinition = "CHAR(36)")
     private UUID user_id;
     private String name;
     private String email;
     private String username;
     private String password;
-
-
 
     public UUID getUser_id() {
         return user_id;
@@ -26,7 +34,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
     public String getEmail() {
         return email;
     }
@@ -51,4 +58,3 @@ public class User {
         this.password = password;
     }
 }
-

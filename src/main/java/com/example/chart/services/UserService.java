@@ -1,8 +1,10 @@
 package com.example.chart.services;
 
 import com.example.chart.entities.User;
+import com.example.chart.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,19 +15,20 @@ import java.util.List;
 public class UserService {
     @Autowired
     private RestTemplate restTemplate;
-
+    private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private UserRepository repository;
     private User user;
     public List<User> getAll()
     {
-        String url = "https://veggian-api.herokuapp.com/user";
-        ResponseEntity<User[]> response = restTemplate.getForEntity(url, User[].class);
-        User[] users = response.getBody();
-        return Arrays.asList(users);
+        return repository.findAll();
     }
 
     public void addUser(User user) {
-        String url = "https://veggian-api.herokuapp.com/user";
-        restTemplate.postForObject(url, user, User.class);
+        passwordEncoder = new BCryptPasswordEncoder();
+        String enc = passwordEncoder.encode(user.getPassword());
+        user.setPassword(enc);
+        repository.save(user);
     }
     public void  setLoginUser(String name){
         for (int i = 0; i<this.getAll().size();i++){
